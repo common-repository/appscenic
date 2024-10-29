@@ -1,0 +1,15 @@
+{
+    "name": "appscenic/woocommerce",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "AppScenic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AppScenic"
+        }
+    ],
+    "require": {}
+}

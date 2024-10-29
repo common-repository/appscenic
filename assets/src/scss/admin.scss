@@ -1,0 +1,184 @@
+@import '~include-media/dist/include-media';
+
+.appscenic {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 80px;
+        padding: 0 30px;
+        background: #fff;
+
+        @include media('<600px') {
+            height: 100px;
+            padding: 0 20px;
+        }
+
+        &-logo {
+            width: 160px;
+        }
+
+        &-nav {
+
+            ul {
+
+                @include media('>=600px') {
+                    display: flex;
+                    align-content: center;
+                }
+            }
+
+            li {
+                margin-left: 30px;
+                margin-bottom: 0;
+
+                &:not(:last-child) {
+
+                    @include media('<600px') {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+
+            a {
+                font-weight: 600;
+                text-decoration: none;
+                color: #000;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &-body {
+        padding: 20px;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 380px;
+            height: 680px;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            z-index: -1;
+            background: url(../../img/bg.png) no-repeat center right;
+            background-size: contain;
+
+            @include media('<1024px') {
+                display: none;
+            }
+        }
+
+        .notice {
+            margin: 0 0 20px 0;
+        }
+
+        &-top {
+            padding-bottom: 26px;
+        }
+
+        &-bottom {
+            padding: 20px 0;
+            border-top: 1px solid #C1C5D3;
+
+            a {
+                display: inline-block;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+
+        &-box {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 240px;
+            height: 240px;
+            padding: 20px 0;
+            font-weight: 600;
+            border: 1px solid #CED1DB;
+            border-radius: 13px;
+        }
+
+        &-status {
+            background-color: #fff;
+            background-image: url(../svg/store.svg), url(../svg/check.svg);
+            background-position: top 30px center, bottom 16px left 16px;
+            background-repeat: no-repeat;
+            background-size: 136px, 26px;
+        }
+
+        &-button {
+            background: #fff url(../svg/plus.svg) no-repeat top 30px center;
+            background-size: 136px;
+            cursor: pointer;
+        }
+
+        &-video {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+
+            & > div {
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.2%;
+                position: relative;
+            }
+
+            iframe {
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
+            }
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+    }
+}
+
+// The CSS file is only loaded on the settings page
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #E7E9F0;
+}
+
+#wpcontent {
+    padding-left: 0 !important;
+}
+
+#wpbody-content {
+
+    #screen-meta,
+    & > .notice {
+        display: none;
+    }
+}
